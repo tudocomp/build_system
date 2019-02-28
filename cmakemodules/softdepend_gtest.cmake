@@ -13,7 +13,9 @@ ExternalProject_Add(
 set(GTEST_ROOT "${CMAKE_BINARY_DIR}/external/gtest" CACHE PATH "Path to googletest")
 find_package(GTest)
 
-if(NOT GTEST_FOUND)
+if(GTEST_FOUND)
+    include_directories(${GTEST_INCLUDE_DIRS})
+else()
     set(TDC_DEPS_MISSING 1)
     add_dependencies(get_softdeps get_gtest)
     message(STATUS
