@@ -1,3 +1,9 @@
+# add gtest to includes
+include_directories(${GTEST_INCLUDE_DIRS})
+
+# compile dependencies for tests
+list(APPEND TDC_TEST_DEPS ${GTEST_LIBRARIES} ${GFLAGS_LIBRARIES} ${GLOG_LIBRARIES})
+
 # Custom test target to run the googletest tests
 add_custom_target(check)
 add_custom_command(
@@ -93,12 +99,7 @@ macro(generic_run_test test_target test_file
     endforeach(bin_dep)
 endmacro()
 
-message("testsuite CMAKE_CURRENT_SOURCE_DIR: ${CMAKE_CURRENT_SOURCE_DIR}")
-message("testsuite CMAKE_CURRENT_BINARY_DIR: ${CMAKE_CURRENT_BINARY_DIR}")
-message("testsuite CMAKE_CURRENT_LIST_DIR: ${CMAKE_CURRENT_LIST_DIR}")
-
 get_filename_component(TDC_TESTSUITE_DIR "${CMAKE_CURRENT_LIST_DIR}/../test" ABSOLUTE)
-message("testsuite TDC_TESTSUITE_DIR: ${TDC_TESTSUITE_DIR}")
 
 macro(run_test test_target)
 generic_run_test(
