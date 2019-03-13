@@ -2,7 +2,7 @@
 include_directories(${GTEST_INCLUDE_DIRS})
 
 # compile dependencies for tests
-list(APPEND TDC_TEST_DEPS ${GTEST_LIBRARIES} ${GFLAGS_LIBRARIES} ${GLOG_LIBRARIES})
+list(APPEND TDC_TEST_DEPS ${GLOG_LIBRARIES} ${GFLAGS_LIBRARIES} ${GTEST_LIBRARIES})
 
 # Custom test target to run the googletest tests
 add_custom_target(check)
