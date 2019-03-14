@@ -16,7 +16,6 @@ find_package(GTest)
 if(GTEST_FOUND)
     include_directories(${GTEST_INCLUDE_DIRS})
 else()
-    set(TDC_DEPS_MISSING 1)
     add_dependencies(get_alldeps get_gtest)
     message(STATUS
     "    Googletest (gtest) is required for running the tests. "

@@ -53,7 +53,7 @@ add_dependencies(get_alldeps get_deps)
 macro(tdc_check_hard_deps)
     if(TDC_DEPS_MISSING)
         MESSAGE(WARNING
-        "There are missing hard dependencies! See above for details."
+        "There are missing hard dependencies! See above for details. "
         "You may use 'make get_deps' to download and install these "
         "dependencies locally.")
     endif()
