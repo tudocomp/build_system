@@ -45,6 +45,17 @@ include(ExternalProject)
 
 # Dependency fetchers
 add_custom_target(get_deps)
-add_custom_target(get_softdeps)
-add_dependencies(get_softdeps get_deps)
+
+add_custom_target(get_alldeps)
+add_dependencies(get_alldeps get_deps)
+
+# Test if dependencies are missing and if so, quit
+macro(tdc_check_hard_deps)
+    if(TDC_DEPS_MISSING)
+        MESSAGE(WARNING
+        "There are missing hard dependencies! See above for details."
+        "You may use 'make get_deps' to download and install these "
+        "dependencies locally.")
+    endif()
+endmacro()
 

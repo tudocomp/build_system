@@ -12,7 +12,7 @@ find_package(SDSL)
 if(SDSL_FOUND)
     include_directories(${SDSL_INCLUDE_DIRS})
 else()
-    add_dependencies(get_softdeps get_sdsl)
+    add_dependencies(get_alldeps get_sdsl)
     MESSAGE(STATUS
     "    SDSL is required for some functionality. "
     "Use -DSDSL_ROOT_DIR=<path> to point to an existing SDSL installation or "

@@ -12,7 +12,7 @@ find_package(STXXL)
 if(STXXL_FOUND)
     include_directories(${STXXL_INCLUDE_DIRS})
 else()
-    add_dependencies(get_softdeps get_stxxl)
+    add_dependencies(get_alldeps get_stxxl)
     MESSAGE(STATUS
     "    STXXL is required for some functionality. "
     "Use -DSTXXL_ROOT_DIR=<path> to point to an existing STXXL installation or "
