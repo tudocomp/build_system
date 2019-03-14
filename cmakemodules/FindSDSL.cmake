@@ -26,12 +26,16 @@ find_library(SDSL_LIBRARY sdsl
 find_package_handle_standard_args(Sdsl DEFAULT_MSG
     SDSL_INCLUDE_DIR SDSL_LIBRARY)
 
-find_library(DIVSUFSORT_LIBRARY divsufsort)
+find_library(DIVSUFSORT_LIBRARY divsufsort
+    PATHS ${SDSL_ROOT_DIR} ${SDSL_LOCAL_DIR} ${SDSL_MIGRATION_DIR}
+    PATH_SUFFIXES lib)
 
 find_package_handle_standard_args(Divsufsort DEFAULT_MSG
     DIVSUFSORT_LIBRARY)
 
-find_library(DIVSUFSORT64_LIBRARY divsufsort64)
+find_library(DIVSUFSORT64_LIBRARY divsufsort64
+    PATHS ${SDSL_ROOT_DIR} ${SDSL_LOCAL_DIR} ${SDSL_MIGRATION_DIR}
+    PATH_SUFFIXES lib)
 
 find_package_handle_standard_args(Divsufsort64 DEFAULT_MSG
     DIVSUFSORT64_LIBRARY)
